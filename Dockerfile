@@ -17,6 +17,4 @@ RUN curl -sS https://getcomposer.org/installer | php \
 
 RUN cp .env.example .env || true
 
-RUN php artisan key:generate || true
-
-CMD php artisan serve --host=0.0.0.0 --port=10000
+CMD php artisan config:clear && php artisan cache:clear && php artisan serve --host=0.0.0.0 --port=10000
